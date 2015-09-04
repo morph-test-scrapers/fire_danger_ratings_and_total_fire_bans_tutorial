@@ -14,7 +14,12 @@ page.at(".danger-ratings-table").at("tbody").search(:tr).each do |tr|
   tds = tr.search(:td)
 
   record = {
-    area: tds[0].text
+    area: tds[0].text,
+    fire_danger_today: tds[1].text,
+    total_fire_ban_today: tds[2].text,
+    fire_danger_tomorrow: tds[3].text,
+    total_fire_ban_tomorrow: tds[4].text,
+    councils_affected: tds[5].text
   }
 
   p record
