@@ -22,8 +22,11 @@ page.at(".danger-ratings-table").at("tbody").search(:tr).each do |tr|
     councils_affected: tds[5].text
   }
 
+  puts "Saving area: #{record[:area]}..."
   ScraperWiki.save_sqlite([:area], record)
 end
+
+puts "Done."
 
 # Write out to the sqlite database using scraperwiki library
 # ScraperWiki.save_sqlite(["name"], {"name" => "susan", "occupation" => "software developer"})
