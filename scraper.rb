@@ -14,6 +14,7 @@ page.at(".danger-ratings-table").at("tbody").search(:tr).each do |tr|
   tds = tr.search(:td)
 
   record = {
+    date_scraped: Date.today,
     area: tds[0].text,
     fire_danger_today: tds[1].text,
     total_fire_ban_today: tds[2].text,
@@ -23,7 +24,7 @@ page.at(".danger-ratings-table").at("tbody").search(:tr).each do |tr|
   }
 
   puts "Saving area: #{record[:area]}..."
-  ScraperWiki.save_sqlite([:area], record)
+  ScraperWiki.save_sqlite([:date_scraped, :area], record)
 end
 
 puts "Done."
